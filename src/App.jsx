@@ -845,9 +845,9 @@ const Projects = () => (
   </section>
 );
 
-// Skills Section Component
 const Skills = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
+
   const categories = [
     "All",
     "Frontend",
@@ -857,36 +857,200 @@ const Skills = () => {
     "Tools",
     "Design",
     "Cloud",
-    "Core",
+  ];
+
+  const skills = [
+    // Frontend
+    {
+      name: "Angular",
+      category: "Frontend",
+      icon: "🅰️",
+      color: "from-red-500 to-red-600",
+    },
+    {
+      name: "React",
+      category: "Frontend",
+      icon: "⚛️",
+      color: "from-blue-400 to-blue-500",
+    },
+    {
+      name: "Vue.js",
+      category: "Frontend",
+      icon: "💚",
+      color: "from-green-400 to-green-500",
+    },
+    {
+      name: "Node.js",
+      category: "Backend",
+      icon: "💚",
+      color: "from-green-500 to-green-600",
+    },
+    {
+      name: "PHP",
+      category: "Backend",
+      icon: "🐘",
+      color: "from-purple-500 to-purple-600",
+    },
+    {
+      name: "Next.js",
+      category: "Frontend",
+      icon: "▲",
+      color: "from-gray-700 to-gray-800",
+    },
+    {
+      name: "Express",
+      category: "Backend",
+      icon: "🚂",
+      color: "from-gray-600 to-gray-700",
+    },
+    {
+      name: "AWS",
+      category: "Cloud",
+      icon: "☁️",
+      color: "from-orange-400 to-orange-500",
+    },
+    {
+      name: "Python",
+      category: "Backend",
+      icon: "🐍",
+      color: "from-yellow-400 to-blue-500",
+    },
+    {
+      name: "Flutter",
+      category: "Mobile",
+      icon: "💙",
+      color: "from-blue-400 to-blue-600",
+    },
+
+    // Second row
+    {
+      name: "CobiT",
+      category: "Tools",
+      icon: "📊",
+      color: "from-gray-600 to-gray-700",
+    },
+    {
+      name: "MongoDB",
+      category: "Database",
+      icon: "🍃",
+      color: "from-green-500 to-green-600",
+    },
+    {
+      name: "Joomla",
+      category: "Tools",
+      icon: "🔧",
+      color: "from-blue-500 to-blue-600",
+    },
+    {
+      name: "MySQL",
+      category: "Database",
+      icon: "🐬",
+      color: "from-blue-600 to-blue-700",
+    },
+    {
+      name: "NIST",
+      category: "Tools",
+      icon: "🛡️",
+      color: "from-red-500 to-red-600",
+    },
+    {
+      name: "Adobe AI",
+      category: "Design",
+      icon: "🎨",
+      color: "from-orange-500 to-red-500",
+    },
+    {
+      name: "Shopify",
+      category: "Tools",
+      icon: "🛍️",
+      color: "from-green-500 to-green-600",
+    },
+    {
+      name: "GCP",
+      category: "Cloud",
+      icon: "☁️",
+      color: "from-blue-500 to-green-500",
+    },
+
+    // Third row
+    {
+      name: "WordPress",
+      category: "Tools",
+      icon: "📝",
+      color: "from-blue-600 to-blue-700",
+    },
+    {
+      name: "Java",
+      category: "Backend",
+      icon: "☕",
+      color: "from-orange-500 to-red-500",
+    },
+    {
+      name: "Swift",
+      category: "Mobile",
+      icon: "🦉",
+      color: "from-orange-500 to-red-500",
+    },
+    {
+      name: "Figma",
+      category: "Design",
+      icon: "🎨",
+      color: "from-purple-500 to-pink-500",
+    },
+    {
+      name: "Docker",
+      category: "Tools",
+      icon: "🐳",
+      color: "from-blue-500 to-blue-600",
+    },
+    {
+      name: "Kubernetes",
+      category: "Tools",
+      icon: "⚙️",
+      color: "from-blue-600 to-purple-600",
+    },
+    {
+      name: "Azure",
+      category: "Cloud",
+      icon: "☁️",
+      color: "from-blue-500 to-blue-600",
+    },
+    {
+      name: "CloudFlare",
+      category: "Cloud",
+      icon: "🌐",
+      color: "from-orange-400 to-orange-500",
+    },
   ];
 
   const filteredSkills =
     selectedCategory === "All"
-      ? cvData.skills
-      : cvData.skills.filter((skill) => skill.category === selectedCategory);
+      ? skills
+      : skills.filter((skill) => skill.category === selectedCategory);
 
   return (
-    <section
-      id="skills"
-      className="py-24 bg-gradient-to-b from-gray-900 to-black"
-    >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <SectionTitle
-          title="Skills & Technologies"
-          subtitle="Tools I use to bring ideas to life"
-          icon={<Code />}
-        />
+    <section className="py-16 bg-gray-900 min-h-screen">
+      <div className="max-w-6xl mx-auto px-6">
+        {/* Header */}
+        <div className="text-center mb-12">
+          <h2 className="text-4xl font-bold text-white mb-4">
+            Skills & Technologies
+          </h2>
+          <p className="text-gray-400 text-lg">
+            Digital solutions that grow with your business.
+          </p>
+        </div>
 
         {/* Category Filter */}
-        <div className="flex flex-wrap justify-center gap-3 mb-16">
+        <div className="flex flex-wrap justify-center gap-3 mb-12">
           {categories.map((category) => (
             <button
               key={category}
               onClick={() => setSelectedCategory(category)}
-              className={`px-6 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105 ${
+              className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${
                 selectedCategory === category
-                  ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg"
-                  : "bg-gray-800 text-gray-300 hover:bg-gray-700 border border-gray-700 shadow-md"
+                  ? "bg-blue-600 text-white"
+                  : "bg-gray-800 text-gray-300 hover:bg-gray-700"
               }`}
             >
               {category}
@@ -895,39 +1059,42 @@ const Skills = () => {
         </div>
 
         {/* Skills Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+        <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 gap-4">
           {filteredSkills.map((skill, index) => (
             <div
               key={index}
-              className="group bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-2xl shadow-2xl border border-gray-700 hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2 hover:scale-105"
+              className="group relative bg-gray-800 rounded-xl p-4 hover:bg-gray-700 transition-all duration-300 transform hover:scale-105 cursor-pointer"
             >
-              <div className="flex flex-col items-center text-center space-y-4">
-                <div className="p-4 bg-gray-700/50 rounded-2xl group-hover:scale-110 transition-transform duration-300">
+              <div className="flex flex-col items-center justify-center h-16">
+                <div className="text-2xl mb-1 group-hover:scale-110 transition-transform duration-300">
                   {skill.icon}
                 </div>
-                <div className="space-y-2">
-                  <h3 className="font-bold text-white text-sm">{skill.name}</h3>
-                  <p className="text-xs text-gray-400 font-medium">
-                    {skill.category}
-                  </p>
-                </div>
+              </div>
 
-                {/* Skill Level Bar */}
-                <div className="w-full">
-                  <div className="bg-gray-700 rounded-full h-2 overflow-hidden">
-                    <div
-                      className="bg-gradient-to-r from-blue-500 to-purple-600 h-full rounded-full transition-all duration-1000 ease-out"
-                      style={{ width: `${skill.level}%` }}
-                    ></div>
-                  </div>
-                  <p className="text-xs text-gray-400 mt-1 font-medium">
-                    {skill.level}%
-                  </p>
+              {/* Tooltip */}
+              <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                <div className="bg-gray-900 text-white text-xs rounded-lg px-3 py-2 whitespace-nowrap border border-gray-700">
+                  {skill.name}
+                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-gray-900"></div>
                 </div>
               </div>
             </div>
           ))}
         </div>
+
+        {/* Additional empty slots to match the grid pattern */}
+        {filteredSkills.length < 40 && (
+          <>
+            {Array.from({ length: 40 - filteredSkills.length }).map(
+              (_, index) => (
+                <div
+                  key={`empty-${index}`}
+                  className="hidden lg:block bg-gray-800/30 rounded-xl h-24 border-2 border-dashed border-gray-700"
+                ></div>
+              )
+            )}
+          </>
+        )}
       </div>
     </section>
   );
